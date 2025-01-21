@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.AchievementsActivity">
+    <!-- /res/layout/activity_achievements.xml -->
+    <!-- res/layout/activity_achievements.xml -->
+    <ScrollView
+        android:id="@+id/scrollViewAchievements"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/layout_achievements"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Completed Achievements Section -->
+            <TextView
+                android:id="@+id/textCompletedAchievements"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Completed Achievements"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="8dp"
+                android:paddingBottom="4dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerCompletedAchievements"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"/>
+
+            <!-- In-Progress Achievements Section -->
+            <TextView
+                android:id="@+id/textInProgressAchievements"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="In-Progress Achievements"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="16dp"
+                android:paddingBottom="4dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerInProgressAchievements"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"/>
+
+            <!-- Hidden Achievements Section -->
+            <TextView
+                android:id="@+id/textHiddenAchievements"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hidden Achievements: 0"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="16dp"
+                android:paddingBottom="4dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.appcompat.widget.LinearLayoutCompat>
