@@ -50,7 +50,7 @@ public class AchievementsAdapter extends RecyclerView.Adapter<AchievementsAdapte
                 .into(holder.icon);
 
         // Handle progress visibility and data
-        if (achievement.getProgressGoal() != null) {
+        if (achievement.getProgressGoal()!= null && achievement.getProgressGoal() > 1) {
             holder.layoutProgress.setVisibility(View.VISIBLE);
             int currentProgress = achievement.getCurrentProgress() != null ? achievement.getCurrentProgress() : 0;
             int goal = achievement.getProgressGoal();

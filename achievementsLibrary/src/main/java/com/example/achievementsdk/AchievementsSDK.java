@@ -88,11 +88,11 @@ public class AchievementsSDK {
 //            }
 //        });
 //    }
-    public void init(String apiKey, String baseUrl, InitCallback callback) {
+    public void init(String apiKey, InitCallback callback) {
         // ...
         AchievementsApi api = ApiClient.getClient(baseUrl).create(AchievementsApi.class);
         this.apiKey = apiKey;
-        this.baseUrl = baseUrl;
+        this.baseUrl = "http://10.0.2.2:3000/api/";
         Call<ApiKeyExtendedResponse> call = api.getKeyData(apiKey); // e.g. getKeyData(...) returns {listId, appId}
         call.enqueue(new Callback<ApiKeyExtendedResponse>() {
             @Override

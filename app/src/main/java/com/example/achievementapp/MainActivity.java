@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         // 1) Initialize the SDK (only needs apiKey + baseUrl)
         AchievementsSDK.getInstance().init(
                 "BDIKA",              // same as in your seed data
-                "http://10.0.2.2:3000/api/",     // or your real base URL
                 new AchievementsSDK.InitCallback() {
                     @Override
                     public void onSuccess() {
