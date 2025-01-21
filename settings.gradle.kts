@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "AchievementApp"
 include(":app")
-include(":achievementsdk")
+include(":achievementsLibrary")
