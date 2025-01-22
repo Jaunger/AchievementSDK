@@ -54,10 +54,10 @@ public class AchievementsAdapter extends RecyclerView.Adapter<AchievementsAdapte
             holder.layoutProgress.setVisibility(View.VISIBLE);
             int currentProgress = achievement.getCurrentProgress() != null ? achievement.getCurrentProgress() : 0;
             int goal = achievement.getProgressGoal();
-
+//TODO: differ between milestone and prog
             holder.progressBar.setMax(goal);
             holder.progressBar.setProgress(currentProgress);
-            holder.textProgress.setText(currentProgress + "/" + goal);
+            holder.textProgress.setText(Math.min(currentProgress, goal) + "/" + goal);
         } else {
             holder.layoutProgress.setVisibility(View.GONE);
         }

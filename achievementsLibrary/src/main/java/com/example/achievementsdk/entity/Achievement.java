@@ -28,6 +28,8 @@ public class Achievement {
     @SerializedName("imageUrl")
     private String imageUrl;
 
+
+
     // Getters
     public String getId() { return id; }
     public String getTitle() { return title; }

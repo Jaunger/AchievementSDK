@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         // 1) Initialize the SDK (only needs apiKey + baseUrl)
         AchievementsSDK.getInstance().init(
-                "BDIKA",              // same as in your seed data
+                "BDIKA2",              // same as in your seed data
                 new AchievementsSDK.InitCallback() {
                     @Override
                     public void onSuccess() {
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
             // The user only provides raw username here
             String rawUsername  = "guest123";
-            String achievementId= "678e7ff9f632f261378640d2";
+            String achievementId= "67912df36d91ada157bba9ec";
             int delta = 5; // Increase progress by 5
 
             // We'll assume you have an equivalent

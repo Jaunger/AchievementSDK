@@ -16,7 +16,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AchievementsSDK {
-
+    //TODO: remove needing to set user everytime and have loggout to exit user
     private static final String TAG = "AchievementsSDK";
 
     private static AchievementsSDK instance;
@@ -46,53 +46,13 @@ public class AchievementsSDK {
      * This method retrieves the AchievementListId associated with the API Key.
      *
      * @param apiKey  Developer's API Key.
-     * @param baseUrl Backend Base URL (e.g., "http://10.0.2.2:3000/api/").
      * @param callback Callback to handle success or failure.
      */
-//    public void init(String apiKey, String baseUrl, InitCallback callback) {
-//        // Ensure baseUrl ends with '/'
-//        if (!baseUrl.endsWith("/")) {
-//            baseUrl += "/";
-//        }
-//
-//        this.apiKey = apiKey;
-//        this.baseUrl = baseUrl;
-//
-//        Log.d(TAG, "Initializing SDK with API Key: " + apiKey + " and Base URL: " + baseUrl);
-//
-//        // Create Retrofit instance and API interface
-//        AchievementsApi api = ApiClient.getClient(baseUrl).create(AchievementsApi.class);
-//
-//        // Make asynchronous call to retrieve achievementListId
-//        Call<ApiKeyResponse> call = api.getAchievementListId(apiKey);
-//        call.enqueue(new Callback<ApiKeyResponse>() {
-//            @Override
-//            public void onResponse(Call<ApiKeyResponse> call, Response<ApiKeyResponse> response) {
-//                if (response.isSuccessful() && response.body() != null) {
-//                    achievementListId = response.body().getListId();
-//                    initialized = true;
-//                    Log.d(TAG, "Successfully retrieved AchievementListId: " + achievementListId);
-//                    callback.onSuccess();
-//                } else {
-//                    String errorMsg = "Initialization failed. Response Code: " + response.code();
-//                    Log.e(TAG, errorMsg);
-//                    callback.onFailure(errorMsg);
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ApiKeyResponse> call, Throwable t) {
-//                String errorMsg = "Initialization error: " + t.getMessage();
-//                Log.e(TAG, errorMsg);
-//                callback.onFailure(errorMsg);
-//            }
-//        });
-//    }
     public void init(String apiKey, InitCallback callback) {
         // ...
+        this.baseUrl = "http://10.0.2.2:3000/api/";
         AchievementsApi api = ApiClient.getClient(baseUrl).create(AchievementsApi.class);
         this.apiKey = apiKey;
-        this.baseUrl = "http://10.0.2.2:3000/api/";
         Call<ApiKeyExtendedResponse> call = api.getKeyData(apiKey); // e.g. getKeyData(...) returns {listId, appId}
         call.enqueue(new Callback<ApiKeyExtendedResponse>() {
             @Override

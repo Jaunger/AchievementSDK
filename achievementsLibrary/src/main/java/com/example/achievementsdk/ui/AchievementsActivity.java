@@ -27,7 +27,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-
+//TODO: add loading picture to glide and order integration
 public class AchievementsActivity extends AppCompatActivity {
 
     private static final String TAG = "AchievementsActivity";
@@ -193,12 +193,13 @@ public class AchievementsActivity extends AppCompatActivity {
      */
     private void categorizeAchievements(List<Achievement> achievements) {
         for (Achievement achievement : achievements) {
-            if (achievement.isHidden()) {
+            if (achievement.isHidden()
+                    && isNotCompleted(achievement)) {
                 hiddenCount++;
                 continue; // Skip adding to other lists
             }
 
-            if (achievement.getProgressGoal() != null) {
+            if (isNotCompleted(achievement)){
                 // Assuming that if progressGoal is not null, it's an In-Progress achievement
                 inProgressAchievements.add(achievement);
             } else {
@@ -206,6 +207,15 @@ public class AchievementsActivity extends AppCompatActivity {
                 completedAchievements.add(achievement); //TODO: change this
             }
         }
+    }
+
+    /**
+     * @param achievement
+     * @return
+     */
+    private static boolean isNotCompleted(Achievement achievement) {
+        return achievement.getProgressGoal() != null
+                && achievement.getProgressGoal() > achievement.getCurrentProgress();
     }
 
     /**
