@@ -50,7 +50,7 @@ public class AchievementsSDK {
      */
     public void init(String apiKey, InitCallback callback) {
         // ...
-        this.baseUrl = "http://10.0.2.2:3000/api/";
+        this.baseUrl = "asd";
         AchievementsApi api = ApiClient.getClient(baseUrl).create(AchievementsApi.class);
         this.apiKey = apiKey;
         Call<ApiKeyExtendedResponse> call = api.getKeyData(apiKey); // e.g. getKeyData(...) returns {listId, appId}
