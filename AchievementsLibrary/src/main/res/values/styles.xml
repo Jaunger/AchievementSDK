@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <!-- Dialog Theme for AchievementsDialogFragment -->
+    <style name="Theme.AchievementApp.Dialog" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <!-- Ensure the dialog doesn't cover the full screen -->
+        <item name="android:windowMinWidthMajor">90%</item> <!-- 90% width in portrait -->
+        <item name="android:windowMinWidthMinor">90%</item> <!-- 90% width in landscape -->
+        <item name="android:windowBackground">@drawable/dialog_background</item> <!-- Custom background -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <!-- Custom Background for Dialog (Rounded Corners) -->
+    <drawable name="dialog_background">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:shape="rectangle">
+            <solid android:color="@android:color/white"/>
+            <corners android:radius="16dp"/>
+            <stroke android:width="1dp" android:color="@android:color/darker_gray"/>
+        </shape>
+    </drawable>
+    </resources>

@@ -1,32 +1,32 @@
 <!-- res/layout/activity_main.xml -->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/layout_main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:orientation="vertical">
 
-    <!-- Button to show Achievements UI -->
+    <!-- Some buttons or other UI -->
     <Button
         android:id="@+id/btnShowAchievements"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Show Achievements"
-        android:layout_marginBottom="16dp"/>
+        android:text="Show Achievements" />
 
-    <!-- Button to create or fetch a Player -->
     <Button
         android:id="@+id/btnCheckPlayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Check or Create Player"
-        android:layout_marginBottom="16dp"/>
+        android:text="Check/Create Player" />
 
-    <!-- Button to update an Achievement's progress -->
     <Button
         android:id="@+id/btnUpdateAchievement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update Achievement Progress"/>
+        android:text="Update Achievement" />
+
+    <!-- The container for the AchievementsFragment -->
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 </LinearLayout>

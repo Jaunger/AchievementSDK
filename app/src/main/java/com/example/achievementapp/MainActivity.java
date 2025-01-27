@@ -1,14 +1,15 @@
 package com.example.achievementapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.achievementsdk.AchievementsSDK;
-import com.example.achievementsdk.utility.PlayerManager;
+import com.example.achievementslibrary.AchievementsSDK;
+import com.example.achievementslibrary.utility.PlayerManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,50 +28,49 @@ public class MainActivity extends AppCompatActivity {
         btnCheckPlayer         = findViewById(R.id.btnCheckPlayer);
         btnUpdateAchievement   = findViewById(R.id.btnUpdateAchievement);
 
-        // 1) Initialize the SDK (only needs apiKey + baseUrl)
+
+        // 1) Initialize the SDK (only needs apiKey + environment)
         AchievementsSDK.getInstance().init(
-                "BDIKA2",              // same as in your seed data
+                this,  // pass 'Activity' or 'Application' context here
+                // environment
                 new AchievementsSDK.InitCallback() {
                     @Override
                     public void onSuccess() {
-                        Log.d(TAG, "SDK initialized successfully.");
-                        Toast.makeText(MainActivity.this,
-                                "SDK Initialized Successfully",
-                                Toast.LENGTH_SHORT).show();
+                        Log.d("MainActivity", "SDK initialized successfully.");
                     }
 
                     @Override
                     public void onFailure(String error) {
-                        Log.e(TAG, "SDK initialization failed: " + error);
-                        Toast.makeText(MainActivity.this,
-                                "SDK Initialization Failed: " + error,
-                                Toast.LENGTH_LONG).show();
+                        Log.e("MainActivity", "SDK initialization failed: " + error);
                     }
                 }
         );
-
-        // 2) Show Achievements
+        // 2) Show Achievements (Dialog-based now)
         btnShowAchievements.setOnClickListener(v -> {
             Log.d(TAG, "Show Achievements button clicked.");
 
             // Example raw username
             String rawUsername = "guest123";
-            // The SDK can optionally store this final combined ID,
-            // but for showing achievements, we only need to setCurrentPlayerId:
+
+            // Set the current player ID in SDK
             AchievementsSDK.getInstance().setCurrentPlayerId(rawUsername);
 
-            // Show Achievements UI
-            AchievementsSDK.getInstance().showAchievementsUI(this);
+            // Retrieve SDK instance
+            AchievementsSDK sdk = AchievementsSDK.getInstance();
+
+            // Get the DialogFragment
+            DialogFragment achievementsDialog = sdk.getAchievementsDialogFragment();
+
+            // Show the dialog
+            achievementsDialog.show(getSupportFragmentManager(), "AchievementsDialog");
         });
 
         // 3) Check or Create Player (using raw username)
         btnCheckPlayer.setOnClickListener(v -> {
             Log.d(TAG, "Check Player button clicked.");
 
-            // We only pass "guest123" now
             String rawUsername = "guest123";
 
-            // This new method merges 'appId + "_" + rawUsername' internally
             PlayerManager.createOrFetchPlayer(
                     rawUsername,
                     new PlayerManager.PlayerCallback() {
@@ -97,8 +97,6 @@ public class MainActivity extends AppCompatActivity {
         btnUpdateAchievement.setOnClickListener(v -> {
             Log.d(TAG, "Update Achievement button clicked.");
 
-            // The user only provides raw username here
-            String rawUsername  = "guest123";
             String achievementId= "67912df36d91ada157bba9ec";
             int delta = 5; // Increase progress by 5
 
@@ -106,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
             // updateAchievementProgress(rawUsername, achievementId, delta, callback)
             // in your PlayerManager. Similar to createOrFetch, it merges IDs behind the scenes.
             PlayerManager.updateAchievementProgress(
-                    rawUsername,
+                    "guest123",
                     achievementId,
                     delta,
                     new PlayerManager.PlayerCallback() {

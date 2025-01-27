@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AchievementApp</string>
+    <string name="close_button_description">Close Achievements</string>
+    <string name="achievement_icon_description">Achievement Icon</string>
+</resources>

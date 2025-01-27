@@ -15,6 +15,10 @@
         android:theme="@style/Theme.AchievementApp"
         tools:targetApi="31">
 
+        <meta-data
+            android:name="com.achievementsLibrary.API_KEY"
+            android:value="BDIKA2" />
+
         <activity
             android:name=".MainActivity"
             android:usesCleartextTraffic="true"
@@ -26,5 +30,6 @@
             </intent-filter>
         </activity>
     </application>
+
 
 </manifest>
