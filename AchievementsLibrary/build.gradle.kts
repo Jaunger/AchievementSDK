@@ -51,7 +51,7 @@ afterEvaluate {
         publications {
             create<MavenPublication>("release") {
                 groupId = "com.github.Jaunger" // Change as needed
-                artifactId = "achievementsLibrary" // Change as needed
+                artifactId = "AchievementsLibrary" // Change as needed
                 version = "1.0.0" // Change as needed
                 artifact(tasks.getByName("bundleReleaseAar"))
 
