@@ -52,7 +52,7 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 groupId = "com.github.Jaunger" // Change as needed
                 artifactId = "AchievementsLibrary" // Change as needed
-                version = "1.0.4" // Change as needed
+                version = "1.0.5" // Change as needed
                 artifact(tasks.getByName("bundleReleaseAar"))
 
             }
