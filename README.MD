@@ -38,7 +38,7 @@ In your **module-level** `build.gradle` file, add **AchievementsSDK**:
 
 ~~~~groovy
 dependencies {
-    implementation 'com.github.Jaunger:AchievementSDK:1.0.5'
+    implementation 'com.github.Jaunger:AchievementSDK:1.0.0'
 }
 ~~~~
 
