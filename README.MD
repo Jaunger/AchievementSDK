@@ -173,4 +173,4 @@ PlayerManager.updateAchievementProgress(
   <img src="app/images/SomeCompleted.png" alt="Some Completed" width="200">
 
 
-video example is found at the [AchievementAPI](https://github.com/Jaunger/achievementAPI) repo
+video example is found at the [AchievementAPI](https://github.com/Jaunger/achievementAPI?tab=readme-ov-file#-video-demonstration) repo
