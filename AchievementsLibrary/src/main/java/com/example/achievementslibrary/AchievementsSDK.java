@@ -226,4 +226,6 @@ public class AchievementsSDK {
     public Context getContext() {
         return appContext;
     }
+
+    public void logOut() { this.currentPlayerId = null;}
 }

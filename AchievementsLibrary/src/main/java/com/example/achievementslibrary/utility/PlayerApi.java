@@ -6,6 +6,7 @@ import com.example.achievementslibrary.network.UpdateProgressRequest;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
@@ -71,4 +72,22 @@ public interface PlayerApi {
             @Path("appId") String appId,
             @Path("playerId") String playerId
     );
+
+    /**
+     * Deletes a player from the system.
+     * <p>
+     * This endpoint removes a player associated with the given `appId` and `playerId`.
+     * </p>
+     *
+     * @param appId The ID of the application.
+     * @param playerId The ID of the player to be deleted.
+     * @return A `Call` object representing the asynchronous API request.
+     *         The response body will contain a success message if successful.
+     */
+    @DELETE("api/players/{appId}/{pId}")
+    Call<ResponseBody> deletePlayer(
+            @Path("appId") String appId,
+            @Path("pId") String playerId
+    );
+
 }

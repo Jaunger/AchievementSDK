@@ -150,4 +150,41 @@ public class PlayerManager {
             }
         });
     }
+
+
+    /**
+     * Deletes a player from the system.
+     *
+     * @param appId The ID of the application.
+     * @param playerId The ID of the player to delete.
+     * @param callback The callback to handle success or failure.
+     */
+    public static void deletePlayer(String appId, String playerId, PlayerCallback callback) {
+        AchievementsSDK sdk = AchievementsSDK.getInstance();
+
+        if (!sdk.isInitialized()) {
+            callback.onError("SDK not initialized. Call init() first.");
+            return;
+        }
+
+        String environment = sdk.getEnvironment();
+
+        PlayerApi api = ApiClient.getClient(sdk.getContext(), environment).create(PlayerApi.class);
+
+        api.deletePlayer(appId, playerId).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    callback.onSuccess("Player deleted successfully.");
+                } else {
+                    callback.onError("Failed to delete player. Response code: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                callback.onError("Delete request failed: " + t.getMessage());
+            }
+        });
+    }
 }
