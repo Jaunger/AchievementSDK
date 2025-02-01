@@ -125,7 +125,6 @@ public class AchievementsDialogFragment extends DialogFragment {
 
         if (apiKey == null || apiKey.isEmpty() || listId == null || listId.isEmpty()) {
             Log.e(TAG, "Missing required parameters: apiKey or listId.");
-            Toast.makeText(requireContext(), "Missing required parameters.", Toast.LENGTH_SHORT).show();
             dismiss();
             return;
         }
@@ -175,9 +174,6 @@ public class AchievementsDialogFragment extends DialogFragment {
                         categorizeAndSortAchievements(achievements);
                     } else {
                         Log.w(TAG, "Achievements list is empty or null.");
-                        Toast.makeText(requireContext(),
-                                "No achievements found for this player.",
-                                Toast.LENGTH_SHORT).show();
                     }
                 } else {
                     String errorMsg = "Failed to load achievements. Code: " + response.code();
@@ -190,7 +186,6 @@ public class AchievementsDialogFragment extends DialogFragment {
             public void onFailure(Call<AchievementList> call, Throwable t) {
                 String errorMsg = "Error fetching achievements: " + t.getMessage();
                 Log.e(TAG, errorMsg);
-                Toast.makeText(requireContext(), errorMsg, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -206,11 +201,9 @@ public class AchievementsDialogFragment extends DialogFragment {
                         ? errorResponse.getError()
                         : "Unknown error";
 
-                Toast.makeText(requireContext(), detailedError, Toast.LENGTH_LONG).show();
                 Log.e(TAG, "Error detail: " + detailedError);
             } catch (Exception e) {
                 Log.e(TAG, "Error parsing errorBody: " + e.getMessage());
-                Toast.makeText(requireContext(), "Error parsing error response.", Toast.LENGTH_LONG).show();
             }
         } else {
             Toast.makeText(requireContext(),

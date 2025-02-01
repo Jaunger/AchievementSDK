@@ -1,32 +1,69 @@
-<!-- res/layout/activity_main.xml -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    android:background="@android:color/background_light">
 
-    <!-- Some buttons or other UI -->
-    <Button
-        android:id="@+id/btnShowAchievements"
+    <!-- Display Current Player -->
+    <TextView
+        android:id="@+id/textCurrentPlayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Show Achievements" />
+        android:text="Current Player: None"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingBottom="16dp"
+        android:textColor="@android:color/black"/>
 
+    <!-- Player Selection Buttons -->
     <Button
-        android:id="@+id/btnCheckPlayer"
+        android:id="@+id/buttonPlayer1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Check/Create Player" />
+        android:text="Set Player 1"
+        android:padding="8dp"/>
 
     <Button
-        android:id="@+id/btnUpdateAchievement"
+        android:id="@+id/buttonPlayer2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update Achievement" />
+        android:text="Set Player 2"
+        android:padding="8dp"
+        android:layout_marginBottom="16dp"/>
 
-    <!-- The container for the AchievementsFragment -->
-    <FrameLayout
-        android:id="@+id/fragmentContainer"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+    <!-- Achievement Buttons -->
+    <Button
+        android:id="@+id/buttonMilestoneAchievement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Milestone Achievement"
+        android:padding="8dp"/>
+
+    <Button
+        android:id="@+id/buttonHiddenAchievement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Hidden Achievement"
+        android:padding="8dp"/>
+
+    <Button
+        android:id="@+id/buttonProgressAchievement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Progress Achievement"
+        android:padding="8dp"/>
+
+    <!-- Show Achievements Button -->
+    <Button
+        android:id="@+id/buttonShowAchievements"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Achievements"
+        android:padding="8dp"
+        android:layout_marginTop="16dp"/>
+
 </LinearLayout>

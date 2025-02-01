@@ -17,7 +17,7 @@
 
         <meta-data
             android:name="com.achievementsLibrary.API_KEY"
-            android:value="BDIKA2" />
+            android:value="0194c1ae-e334-77ab-8923-d630383eb673" />
 
         <activity
             android:name=".MainActivity"
