@@ -167,10 +167,10 @@ PlayerManager.updateAchievementProgress(
 
 ## 📷 Screenshots
 
-  <img src="images/Uncompleted.png" alt="Uncompleted" width="500">
+  <img src="app/images/Uncompleted.png" alt="Uncompleted" width="500">
 
 
-  <img src="images/SomeCompleted.png" alt="Some Completed" width="500">
+  <img src="app/images/SomeCompleted.png" alt="Some Completed" width="500">
 
 
 video example is found at the [AchievementAPI](https://github.com/Jaunger/achievementAPI) repo
