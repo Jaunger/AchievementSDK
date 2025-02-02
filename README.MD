@@ -38,7 +38,7 @@ In your **module-level** `build.gradle` file, add **AchievementsSDK**:
 
 ~~~~groovy
 dependencies {
-    implementation 'com.github.Jaunger:AchievementSDK:1.0.0'
+    implementation 'com.github.Jaunger:AchievementSDK:1.0.1'
 }
 ~~~~
 
@@ -162,3 +162,32 @@ PlayerManager.updateAchievementProgress(
 - `rawUsername` must match the one used when creating/fetching the player.
 - `achievementId` must be the ID of an existing achievement.
 - Adjust `progressDelta` based on how much progress you want to record.
+
+---
+
+###  ❌ Delete Player
+
+To remove a player from the system, use the following API call:
+
+`DELETE /api/players/{appId}/{pId}`
+	•	appId: The application’s unique ID.
+	•	pId: The player’s unique ID.
+
+Example Response:
+```json
+{
+  "message": "Player deleted successfully."
+}
+```
+
+---
+
+## 📷 Screenshots
+
+  <img src="app/images/Uncompleted.png" alt="Uncompleted" width="200">
+
+
+  <img src="app/images/SomeCompleted.png" alt="Some Completed" width="200">
+
+
+video example is found at the [AchievementAPI](https://github.com/Jaunger/achievementAPI?tab=readme-ov-file#-video-demonstration) repo
