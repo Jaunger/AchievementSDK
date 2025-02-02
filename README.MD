@@ -163,7 +163,24 @@ PlayerManager.updateAchievementProgress(
 - `achievementId` must be the ID of an existing achievement.
 - Adjust `progressDelta` based on how much progress you want to record.
 
+---
 
+###  ❌ Delete Player
+
+To remove a player from the system, use the following API call:
+
+`DELETE /api/players/{appId}/{pId}`
+	•	appId: The application’s unique ID.
+	•	pId: The player’s unique ID.
+
+Example Response:
+```json
+{
+  "message": "Player deleted successfully."
+}
+```
+
+---
 
 ## 📷 Screenshots
 
